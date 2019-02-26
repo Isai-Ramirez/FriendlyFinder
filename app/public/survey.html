@@ -28,7 +28,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Table Reservation
+                        Survey
                     </div>
                     <div class="card-body">
                         <form role="form">
@@ -37,22 +37,48 @@
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name">
                             </div>
-
                             <div class="form-group">
-                                <label for="phone-number">Phone Number</label>
-                                <input type="text" class="form-control" id="phone-number">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="unique-id">Unique ID</label>
+                                <label for="unique-id1">How much of a reader are you? (1=not so much, 5= a lot)</label>
                                 <input type="text" class="form-control" id="unique-id">
                             </div>
-
+                            <div class="form-group">
+                                <label for="unique-id2">How much do you like movies?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id3">How much do you like video games?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id4">How much do you like sports?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id5">how much do you like anime?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id6">How much do you like pizza?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id7">How much do you like Mexican Food?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id8">How much do you like the cold?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id9">How much do you like the heat?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="unique-id10">How much do you like Burgers?</label>
+                                <input type="text" class="form-control" id="unique-id">
+                            </div>
+                            
+ 
                         </form>
                         <br>
                         <div class="text-right">
@@ -70,14 +96,23 @@
         $("#add-btn").on("click", function (event) {
             event.preventDefault();
 
-            var newReservation = {
+            var newFriend = {
                 name: $("#name").val().trim(),
-                phoneNumber: $("#phone-number").val(),
-                email: $("#email").val().trim(),
-                uniqueID: $("#unique-id").val().trim()
+                uniqueID: [
+                    $("#unique-id1").val().trim(),
+                    $("#unique-id2").val().trim(),
+                    $("#unique-id3").val().trim(),
+                    $("#unique-id4").val().trim(),
+                    $("#unique-id5").val().trim(),
+                    $("#unique-id6").val().trim(),
+                    $("#unique-id7").val().trim(),
+                    $("#unique-id8").val().trim(),
+                    $("#unique-id9").val().trim(),
+                    $("#unique-id10").val().trim()
+                ]
             };
 
-            $.post("/api/tables", newReservation)
+            $.post("/api/tables", newFriend)
                 .then(function (data) {
                     console.log(data);
                     alert("Making Reservation...");
