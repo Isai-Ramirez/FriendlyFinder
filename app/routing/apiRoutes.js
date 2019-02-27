@@ -20,4 +20,4 @@ app.post("/api/tables", function (req, res) {
 
     res.json(newFriend);
 });
-module.exports
+module.exports = app;
